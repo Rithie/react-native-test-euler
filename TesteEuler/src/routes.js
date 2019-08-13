@@ -16,7 +16,7 @@ const AppSwitchNavigator = createSwitchNavigator(
     App: AppStackNavigator,
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'App',
     headerMode: 'none',
   }
 )
