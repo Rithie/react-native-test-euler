@@ -6,7 +6,7 @@ export const Container = styled.View`
   display: flex;
   flex: 1;
   height: 100%;
-  background-color: #fff;
+  background-color: #e8e6ed;
 `;
 
 export const Header = styled.View(props => ({
@@ -16,7 +16,10 @@ export const Header = styled.View(props => ({
   justifyContent: 'flex-start',
   alignItems: 'flex-end',
   flexDirection: 'row',
-  backgroundColor: '#005d95',
+  backgroundColor: '#f6f6f6',
+  shadowOffset:{  width: 10,  height: 10,  },
+  shadowColor: 'black',
+  shadowOpacity: 1.0,
   ...ifIphoneX(
     {
       paddingTop: 50,
@@ -32,11 +35,11 @@ export const Header = styled.View(props => ({
 export const HeaderTitle = styled.Text`
   font-weight: bold;
   font-size: 16;
-  color: #fff;
+  color: #005d95;
   margin: 0 0 5px 15px;
 `;
 
-export const Body = styled.View`
+export const Body = styled.ScrollView`
   display: flex;
   flex: 1;
 `;
@@ -71,30 +74,52 @@ export const InputContainer = styled.View(props => ({
   background: '#c9c8ce',
 }));
 
-export const ListItem = styled.TouchableOpacity`
+export const Card = styled.TouchableOpacity`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background: white;
   margin: 5px 0;
+  shadowOffset:{  width: 10,  height: 10,  },
 `;
 
+export const TimeSlot = styled.Text`
+  color: #666;
+  font-size: 10px;
+  align-self: flex-start;
+  margin: 0 5px;
+`
+
+export const ActionIcon = styled.Image`
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 30px;
+`
+
+export const ListHeader = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 5px 0;
+`
+
 export const Content = styled.View`
-  width: 100%;
   height: 100%;
   flex: 1;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin: 5px 5px;
-  border-bottom-width: 1px;
-  border-bottom-color: #d8d8d8;
 `;
 
 export const Title = styled.Text`
   font-size: 14px;
-  color: #222;
+  color: #56697d;
   margin: 0 0 5px 0;
 `;
 
@@ -103,10 +128,11 @@ export const SubTitle = styled.Text`
   color: #555;
 `;
 
-
 export const Avatar = styled.Image`
-  width: 60px;
-  height: 70px;
+  width: 100%;
+  height: 200px;
+  max-height: 300px;
+  max-width: 600px;
 `;
 
 
