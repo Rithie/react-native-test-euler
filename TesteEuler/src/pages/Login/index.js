@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity,
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
 
 import { connect } from 'react-redux';
 
-import { Creators as AuthActions } from '~/store/ducks/auth';
-
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Creators as AuthActions } from '~/store/ducks/auth';
 
 import {
   Label,
@@ -22,8 +25,6 @@ import {
   Header,
   Row,
 } from './styles';
-
-
 
 class Login extends Component {
   state = {
@@ -84,14 +85,8 @@ class Login extends Component {
       passwordErrors: '',
     });
 
-    const { navigate } = this.props.navigation;
-
-    // navigate('App');
-    console.tron.log(this.state);
-
     logInRequest(usuario, password);
   };
-
 
   render() {
     const { securePassword, showUsuarioError } = this.state;
@@ -121,16 +116,16 @@ class Login extends Component {
                 solid
               />
               <View />
-                <FontAwesome
-                  style={{
-                    margin: 5,
-                    opacity: 0.8,
-                  }}
-                  name="question-circle-o"
-                  size={25}
-                  color="#fff"
-                  solid
-                />
+              <FontAwesome
+                style={{
+                  margin: 5,
+                  opacity: 0.8,
+                }}
+                name="question-circle-o"
+                size={25}
+                color="#fff"
+                solid
+              />
             </Header>
             <View
               style={{
@@ -139,97 +134,97 @@ class Login extends Component {
             >
               <Label>Informe o usuário e a senha encaminhados pela escola</Label>
               <Row>
-              <InputContainer borderRadiusTop>
-                <Icon
-                  style={{
-                    margin: 5,
-                    opacity: 0.8,
-                  }}
-                  name="user"
-                  size={16}
-                  color="#f9f9f9"
-                  solid
-                />
-                <TextInput
-                  style={{ width: '90%', padding: 10, color: '#fff' }}
-                  ref={(input) => {
-                    this.secondTextInput = input;
-                  }}
-                  onChangeText={this.onChangeUsuario}
-                  placeholder="Usuário"
-                  placeholderTextColor="#fff"
-                  autoCompleteType="email"
-                  textContentType="emailAddress"
-                  autoCorrect={false}
-                  spellCheck={false}
-                  autoCapitalize="none"
-                  returnKeyType="next"
-                  onSubmitEditing={() => {
-                    this.secondTextInput.focus();
-                  }}
-                  blurOnSubmit={false}
-                  error={showUsuarioError}
-                />
-              </InputContainer>
-              <InputContainer borderRadiusBottom noBorder>
-                <Icon
-                  style={{
-                    margin: 5,
-                    opacity: 0.8,
-                  }}
-                  name="key"
-                  size={16}
-                  color="#f9f9f9"
-                  solid
-                />
-                <TextInput
-                  style={{ width: '80%', padding: 10, color: '#fff' }}
-                  ref={(input) => {
-                    this.secondTextInput = input;
-                  }}
-                  onChangeText={this.onChangePassword}
-                  autoCompleteType="password"
-                  textContentType="password"
-                  secureTextEntry={securePassword}
-                  placeholder="Senha"
-                  placeholderTextColor="#fff"
-                  autoCapitalize="none"
-                  returnKeyType="done"
-                  onSubmitEditing={() => {
-                    this.signIn();
-                  }}
-                  blurOnSubmit={false}
-                />
-                <TouchableOpacity
-                onPress={() => {
-                  this.revealPassword();
-                }}
-              >
-                {securePassword ? (
-                  <FontAwesome
-                  style={{
-                    margin: 5,
-                    opacity: 0.8,
-                  }}
-                  name="eye"
-                  size={16}
-                  color="#f9f9f9"
-                  solid
+                <InputContainer borderRadiusTop>
+                  <Icon
+                    style={{
+                      margin: 5,
+                      opacity: 0.8,
+                    }}
+                    name="user"
+                    size={16}
+                    color="#f9f9f9"
+                    solid
                   />
-                ) : (
-                  <FontAwesome
-                  style={{
-                    margin: 5,
-                    opacity: 0.8,
-                  }}
-                  name="eye-slash"
-                  size={16}
-                  color="#f9f9f9"
-                  solid
+                  <TextInput
+                    style={{ width: '90%', padding: 10, color: '#fff' }}
+                    ref={(input) => {
+                      this.secondTextInput = input;
+                    }}
+                    onChangeText={this.onChangeUsuario}
+                    placeholder="Usuário"
+                    placeholderTextColor="#fff"
+                    autoCompleteType="email"
+                    textContentType="emailAddress"
+                    autoCorrect={false}
+                    spellCheck={false}
+                    autoCapitalize="none"
+                    returnKeyType="next"
+                    onSubmitEditing={() => {
+                      this.secondTextInput.focus();
+                    }}
+                    blurOnSubmit={false}
+                    error={showUsuarioError}
                   />
-                )}
-              </TouchableOpacity>
-              </InputContainer>
+                </InputContainer>
+                <InputContainer borderRadiusBottom noBorder>
+                  <Icon
+                    style={{
+                      margin: 5,
+                      opacity: 0.8,
+                    }}
+                    name="key"
+                    size={16}
+                    color="#f9f9f9"
+                    solid
+                  />
+                  <TextInput
+                    style={{ width: '80%', padding: 10, color: '#fff' }}
+                    ref={(input) => {
+                      this.secondTextInput = input;
+                    }}
+                    onChangeText={this.onChangePassword}
+                    autoCompleteType="password"
+                    textContentType="password"
+                    secureTextEntry={securePassword}
+                    placeholder="Senha"
+                    placeholderTextColor="#fff"
+                    autoCapitalize="none"
+                    returnKeyType="done"
+                    onSubmitEditing={() => {
+                      this.signIn();
+                    }}
+                    blurOnSubmit={false}
+                  />
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.revealPassword();
+                    }}
+                  >
+                    {securePassword ? (
+                      <FontAwesome
+                        style={{
+                          margin: 5,
+                          opacity: 0.8,
+                        }}
+                        name="eye"
+                        size={16}
+                        color="#f9f9f9"
+                        solid
+                      />
+                    ) : (
+                      <FontAwesome
+                        style={{
+                          margin: 5,
+                          opacity: 0.8,
+                        }}
+                        name="eye-slash"
+                        size={16}
+                        color="#f9f9f9"
+                        solid
+                      />
+                    )}
+                  </TouchableOpacity>
+                </InputContainer>
               </Row>
               <SolidButton
                 onPress={() => {
@@ -272,7 +267,7 @@ class Login extends Component {
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  logInRequest: (login, password) => dispatch(AuthActions.logInRequest(login, password))
+  logInRequest: (login, password) => dispatch(AuthActions.logInRequest(login, password)),
 });
 
 export default connect(
